@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Generated Daily Notes (생성된 업무일지 폴더 및 파일 무시)
+업무일지/
+*.txt
