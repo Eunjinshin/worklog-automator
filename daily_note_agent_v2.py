@@ -19,9 +19,9 @@ def get_file_name_and_headers():
     return filename, today_str, year, month, week_num
 
 def create_or_update_note():
-    # 저장할 폴더 경로 설정 (스크립트가 있는 곳 하위에 '업무일지' 폴더 생성)
-    # 절대 경로를 원하시면 아래를 수정하세요. (예: target_dir = r"C:\업무일지")
-    target_dir = os.path.join(os.getcwd(), "업무일지")
+    # 저장할 폴더 경로 설정 (바탕화면\업무일지 로 고정)
+    # 다른 곳에 저장하려면 아래를 수정하세요. (예: target_dir = r"C:\업무일지")
+    target_dir = os.path.join(os.path.expanduser("~"), "Desktop", "업무일지")
     
     # 1. 폴더가 없으면 생성
     if not os.path.exists(target_dir):
