@@ -42,12 +42,6 @@ def create_or_update_note():
 =========================================
 <!-- DAILY_INSERT_MARKER -->
 
-=========================================
-📚 스터디 및 독서 (오케스트리온)
-=========================================
-- [ ] AI 엔지니어링 : 칩후엔
-- [ ] 견고한 데이터 엔지니어링 : 조 라이스
-- [ ] AI 에이전트 엔지니어링 : 마이클 알바다
 
 =========================================
 💡 유용한 정보 & 메모
@@ -88,13 +82,17 @@ def create_or_update_note():
     else:
         print("오늘 날짜의 할 일 섹션이 이미 존재합니다.")
 
-    # 5. 메모장(Notepad)으로 파일 열기
+    # 5. Notepad++로 파일 열기 (없으면 메모장으로 대체)
+    notepadpp = r"C:\Program Files\Notepad++\notepad++.exe"
     try:
-        # Windows 환경에서 notepad.exe를 호출하여 해당 파일을 엽니다.
-        subprocess.Popen(['notepad.exe', filepath])
-        print("메모장을 실행했습니다.")
+        if os.path.exists(notepadpp):
+            subprocess.Popen([notepadpp, filepath])
+            print("Notepad++를 실행했습니다.")
+        else:
+            subprocess.Popen(['notepad.exe', filepath])
+            print("Notepad++가 없어 메모장으로 열었습니다.")
     except Exception as e:
-        print(f"메모장을 여는 중 오류가 발생했습니다: {e}")
+        print(f"편집기를 여는 중 오류가 발생했습니다: {e}")
 
     return filepath
 
